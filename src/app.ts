@@ -46,8 +46,9 @@ app.post('/Contact', async (req: Request, res: Response) => {
   }
 });
 
-const port = process.env.PORT;
-
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+app.listen({
+  host: '0.0.0.0',
+  port: process.env.PORT ? Number(process.env.PORT) : 5000,
+}, () => {
+  console.log(`Server running on port ${process.env.PORT}`);  
 });
